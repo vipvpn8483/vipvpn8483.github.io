@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#030712" />
+  <meta name="description" content="VIP VPN - Fast, Secure, and Private. Worldwide mesh node network." />
+  <title>VIP VPN - The Ultimate Secure Network</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #030712;
+      --glass: rgba(17, 24, 39, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --primary: #06b6d4;
+      --primary-glow: rgba(6, 182, 212, 0.4);
+      --secondary: #8b5cf6;
+      --secondary-glow: rgba(139, 92, 246, 0.4);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated Space Background */
+    .bg-orbs {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: float 20s infinite alternate ease-in-out;
+      opacity: 0.5;
+    }
+    
+    .orb-1 { width: 400px; height: 400px; background: var(--primary-glow); top: -10%; left: -10%; }
+    .orb-2 { width: 500px; height: 500px; background: var(--secondary-glow); bottom: -20%; right: -10%; animation-delay: -5s; }
+    
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(100px, 50px) scale(1.1); }
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(3, 7, 18, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5%;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 1rem 2rem;
+      border-radius: 9999px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      box-shadow: 0 10px 30px var(--primary-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px var(--primary-glow);
+    }
+
+    /* Features */
+    .features {
+      padding: 5rem 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      backdrop-filter: blur(16px);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.5);
+      border-top: 1px solid var(--glass-border);
+      padding: 3rem 5%;
+      margin-top: 5rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .legal-disclaimer {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dynamic Background -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <nav>
+    <div class="logo"><i class="fa-solid fa-shield-halved"></i> VIP VPN</div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>The Ultimate<br>Secure Network</h1>
+    <p>Military-grade encryption. Global mesh nodes. Absolute privacy. Protect your digital footprint across the world with a single tap.</p>
+    <a href="#" class="btn btn-primary">
+      <i class="fa-brands fa-google-play"></i> Get it on Google Play
+    </a>
+  </section>
+
+  <section id="features" class="features">
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-user-ninja"></i></div>
+      <h3>Strict Zero-Logs Policy</h3>
+      <p>Your privacy is our priority. We do not track, collect, or store your browsing history, destination IPs, or DNS queries. What you do online stays with you.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-network-wired"></i></div>
+      <h3>Global Mesh Nodes</h3>
+      <p>Connect instantly to our highly optimized server grid spanning the globe. Experience lightning-fast speeds for streaming, gaming, and secure browsing.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+      <h3>Quantum-Resistant Encryption</h3>
+      <p>Powered by the next-generation WireGuard® protocol, our tunnels secure your data against the most advanced cyber threats and packet sniffers.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="logo"><i class="fa-solid fa-shield-halved"></i> VIP VPN</div>
+      <div class="footer-links">
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:vipvpn8483@gmail.com">Support</a>
+        <a href="mailto:vipvpn8483@gmail.com" style="color: #ef4444;">Report Abuse</a>
+      </div>
+    </div>
+    
+    <div class="legal-disclaimer">
+      <strong>Important Legal Notice:</strong> By using VIP VPN, you agree to our Terms of Service. You are strictly prohibited from using this service for any illegal activities, including but not limited to hacking, cyber-attacks, copyright infringement, or distributing malicious software. VIP VPN holds absolutely zero liability for actions committed by users on our network. We reserve the right to instantly terminate the access of any user found violating these terms to protect the integrity of our network.
+      <br><br>
+      &copy; 2026 VIP VPN. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
